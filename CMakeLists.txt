@@ -4,6 +4,8 @@ project(CppRobots)
 set(CMAKE_CXX_STANDARD 11)
 set(CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_CXX_FLAGS "--coverage")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin CACHE FILEPATH "Where to put the binaries.")
 set(CMAKE_DOC_OUTPUT_DIR ${CMAKE_BINARY_DIR}/doc CACHE FILEPATH "Where to put the documentation.")

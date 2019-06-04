@@ -13,6 +13,8 @@
 #ifndef __MATH_UTILITY__
 #define __MATH_UTILITY__
 
+#include "math.h"
+
 /**
   Coustom modulus function.
 

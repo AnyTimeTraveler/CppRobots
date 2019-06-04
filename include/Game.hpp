@@ -12,6 +12,7 @@
 #include "Simulation.hpp"
 #include "ViewSFML.hpp"
 #include "version.h"
+#include "AgentFactory.hpp"
 
 #include <functional>
 #include <map>
@@ -34,7 +35,7 @@ protected:
       \brief A factory function for Agents. This function is called when the
       Player (re)spawns.
     */
-    std::function<Agent *()> agentFactory;
+    AgentFactory* agentFactory;
     /**
       \brief Number of lives of the Player.
     */
@@ -79,7 +80,7 @@ public:
     \param name The name of the player.
     \param agentFactory A funtion, that returns a new Agent.
   */
-  void addPlayer(std::string name, std::function<Agent *()> agentFactory);
+  void addPlayer(std::string name, AgentFactory* agentFactory);
 
   /**
     \brief Run the Game until it is finished.

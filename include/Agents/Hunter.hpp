@@ -35,7 +35,7 @@ public:
   During each time step the Hunter trys to get clother to the closes visible
   Robot.
   */
-  virtual Action update(Robot const &r) override;
+  Action update(Robot const &r) override;
 
 private:
   double turn_perpendicular(double ang, double rotation) const;

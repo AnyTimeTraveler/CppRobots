@@ -30,7 +30,7 @@ public:
   /**
   During each time step the Orbiter retuns its constant speed and turning rate.
   */
-  virtual Action update(Robot const &r) override;
+  Action update(Robot const &r) override;
 };
 
 #endif /* end of include guard: __ORBITER__ */

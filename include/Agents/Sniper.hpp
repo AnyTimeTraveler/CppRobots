@@ -29,7 +29,7 @@ public:
   During each time step the Sniper trys to get clother to the closes visible
   Robot.
   */
-  virtual Action update(Robot const &r) override;
+  Action update(Robot const &r) override;
 };
 
 #endif /* end of include guard: __SNIPER__ */

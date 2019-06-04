@@ -6,6 +6,7 @@
 *   \author Jan-Niklas Braak
 */
 
+#include <AgentFactory.hpp>
 #include "Game.hpp"
 
 Game::Game(Simulation *sim, View *view_) : simulation(sim), view(view_) {
@@ -19,12 +20,12 @@ Game::Game(Simulation *sim, View *view_) : simulation(sim), view(view_) {
   view->log("Welcome to CppRobots v" + std::string(VERSION_SHORT));
 }
 
-void Game::addPlayer(std::string name, std::function<Agent *()> agentFactory) {
+void Game::addPlayer(std::string name, AgentFactory* agentFactory) {
   // create and remember Player
   Player player{agentFactory, startingLives};
   players.insert({name, player});
   // create a Robot for the Player
-  simulation->newPlayer(name, agentFactory());
+  simulation->newPlayer(name, agentFactory->createAgent());
 }
 
 void Game::run() {
@@ -47,7 +48,7 @@ void Game::onDeath(std::string name) {
   if (lives > 0) {
     // Respawn the Player.
     view->log(name + " died! " + std::to_string(lives) + " lives left");
-    simulation->newPlayer(name, players[name].agentFactory());
+    simulation->newPlayer(name, players[name].agentFactory->createAgent());
   } else {
     view->log(name + " lost! " + std::to_string(simulation->getNumPlayers()) +
               " players left");

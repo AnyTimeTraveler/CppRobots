@@ -13,9 +13,11 @@
 #include "Agents/Follower.hpp"
 #include "Agents/Sniper.hpp"
 #include "Agents/Hunter.hpp"
+#include "Agents/Simon.hpp"
 
 #include <chrono>
 #include <fstream>
+#include <AgentFactory.hpp>
 
 /**
     This is the main function of the program.
@@ -57,14 +59,9 @@ int main() {
   }
 
   // add players
-  const auto hunterFactory = []() { return new Hunter(100, 20, 30); };
-  // const auto sniperFactory = []() { return new Sniper(); };
+  auto agentFactory = new AgentFactory();
   for (auto const &name : names) {
-    // auto seed = std::hash<std::string>()(name.asString());
-    // const auto wandererFactory = [=]() {
-    //   return new Wanderer(0.1, 40, seed);
-    // };
-    game.addPlayer(name.asString(), hunterFactory);
+    game.addPlayer(name.asString(), agentFactory);
   }
 
   // run the game

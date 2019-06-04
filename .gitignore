@@ -29,7 +29,14 @@
 
 # Build folder
 build*/
+cmake-build-debug/
 
 # Local project options
 .clang_complete
 .atom-build.json
+
+# Idea Files
+.idea/
+*.iws
+*.ipr
+*.iml

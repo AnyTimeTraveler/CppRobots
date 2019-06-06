@@ -38,7 +38,6 @@ public:
   Action update(Robot const &r) override;
 
 private:
-  double turn_perpendicular(double ang, double rotation) const;
   double turn_toward(double ang, double rotation) const;
 };
 

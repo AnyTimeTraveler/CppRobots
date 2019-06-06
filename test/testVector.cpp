@@ -1,3 +1,6 @@
+#include <sstream>
+#include <string>
+#include <iostream>
 #include "Vector.hpp"
 #include <gtest/gtest.h>
 
@@ -133,6 +136,21 @@ TEST(VectorTest, Polar) {
   // EXPECT_EQ(p1, p2);
   EXPECT_DOUBLE_EQ(p1.x, p2.x);
   EXPECT_DOUBLE_EQ(p1.y, p2.y);
+}
+
+TEST(VectorTest, AngleAndMagnitude) {
+  Vector_i p(4,10);
+
+
+  EXPECT_EQ(10, p.magnitude());
+  EXPECT_EQ(1, p.angle());
+}
+
+TEST(VectorTest, OStream) {
+  Vector_i p(10,10);
+  std::stringstream stringstream;
+  stringstream << p;
+  EXPECT_TRUE(stringstream.str() == "(10, 10)");
 }
 
 int main(int argc, char **argv) {

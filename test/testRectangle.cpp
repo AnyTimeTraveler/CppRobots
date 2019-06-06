@@ -86,6 +86,14 @@ TEST(RectangleTest, Vertices) {
 //   EXPECT_DOUBLE_EQ(-0.70710678118654746, normals[3].y);
 // }
 
+
+TEST(RectangleTest, OStream) {
+  Rectangle r({10, 10});
+  std::stringstream stringstream;
+  stringstream << r;
+  EXPECT_TRUE(stringstream.str() == "Rectangle((10, 10), (0, 0), 0)");
+}
+
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

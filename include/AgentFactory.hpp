@@ -12,9 +12,9 @@
 
 class AgentFactory {
 private:
-    int i;
+  int i;
 public:
-    Agent *createAgent();
+  Agent *createAgent();
 };
 
 #endif

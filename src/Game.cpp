@@ -20,7 +20,7 @@ Game::Game(Simulation *sim, View *view_) : simulation(sim), view(view_) {
   view->log("Welcome to CppRobots v" + std::string(VERSION_SHORT));
 }
 
-void Game::addPlayer(std::string name, AgentFactory* agentFactory) {
+void Game::addPlayer(std::string name, AgentFactory *agentFactory) {
   // create and remember Player
   Player player{agentFactory, startingLives};
   players.insert({name, player});
